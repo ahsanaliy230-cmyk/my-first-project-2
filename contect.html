@@ -2,56 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduLearn - Contact</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">EduLearn</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <header> <!-- مینو --> </header>
     <main>
         <section class="page-header">
             <h1>Contact Us</h1>
             <p>We'd love to hear from you! Send us a message.</p>
         </section>
-
         <section class="contact-form">
-            <form action="https://formspree.io/f/mjgeajjb" method="post">
+            <form action="#" method="post">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
-
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
-
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
-
                 <button type="submit" class="btn">Send Message</button>
             </form>
         </section>
-
         <section class="contact-info">
             <h3>Other ways to reach us</h3>
             <p>Email: info@edulearn.com</p>
             <p>Phone: +1 (555) 123-4567</p>
             <p>Address: 123 Learning Lane, Knowledge City, ED 12345</p>
-            <!-- Optional map image -->
-            <img src="https://source.unsplash.com/featured/600x200?map" alt="Map" style="margin-top: 20px; border-radius: 8px;">
+            <img src="https://source.unsplash.com/featured/600x200?map" alt="Map" style="margin-top:20px; border-radius:8px;">
         </section>
     </main>
+    <footer>...</footer>
+    <script src="common.js"></script>
+    <script>
+    // د ژبو بدلونکی
+    (function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const elementsToTranslate = document.querySelectorAll('[data-en]');
+        if (langButtons.length === 0 || elementsToTranslate.length === 0) return;
 
-    <footer>
-        <p>&copy; 2025 EduLearn. All rights reserved.</p>
-    </footer>
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(el => {
+                const translation = el.getAttribute(`data-${lang}`);
+                if (translation) el.textContent = translation;
+            });
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.id === `lang-${lang}`);
+            });
+            document.documentElement.lang = lang;
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const lang = e.target.id.split('-')[1];
+                setLanguage(lang);
+            });
+        });
+
+        // ابتدائي ژبه (انګلیسي)
+        setLanguage('en');
+    })();
+
+    // د چیټ بکس فعالیت
+    (function() {
+        const chatButton = document.getElementById('chat-button');
+        const chatBox = document.getElementById('chat-box');
+        const closeChat = document.getElementById('close-chat');
+        if (chatButton && chatBox && closeChat) {
+            chatButton.addEventListener('click', () => {
+                chatBox.classList.toggle('active');
+            });
+            closeChat.addEventListener('click', () => {
+                chatBox.classList.remove('active');
+            });
+        }
+    })();
+
+    // د خبر پاڼې پاپ اپ
+    (function() {
+        const popup = document.getElementById('newsletter-popup');
+        if (popup) {
+            // د ۳ ثانیو وروسته ښکاره کړئ
+            setTimeout(() => {
+                popup.classList.add('active');
+            }, 3000);
+
+            const closePopup = document.getElementById('close-popup');
+            if (closePopup) {
+                closePopup.addEventListener('click', () => {
+                    popup.classList.remove('active');
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                }
+            });
+        }
+    })();
+</script>
 </body>
 </html>
