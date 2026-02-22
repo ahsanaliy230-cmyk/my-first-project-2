@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLearn - FAQ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Accordion styles (add to style.css later) */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .faq-item {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .faq-question {
+            background: #f4f4f4;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+        }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 15px;
+            font-size: 1.2rem;
+        }
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #fff;
+        }
+        .faq-item.active .faq-answer {
+            padding: 15px;
+            max-height: 200px; /* adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">EduLearn</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common queries about our courses and platform.</p>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question">How do I enroll in a course?</div>
+                <div class="faq-answer">Simply visit the Courses page, choose your desired course, and click "Enroll Now". You'll be guided through the payment and registration process.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Are the courses self‑paced?</div>
+                <div class="faq-answer">Yes! All our courses are self‑paced. You can learn at your own speed and access the materials anytime.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do I get a certificate after completion?</div>
+                <div class="faq-answer">Absolutely. Upon finishing a course, you'll receive a certificate of completion that you can share on LinkedIn or your resume.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What payment methods do you accept?</div>
+                <div class="faq-answer">We accept all major credit cards, PayPal, and bank transfers in some regions.</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 EduLearn. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple accordion script
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
