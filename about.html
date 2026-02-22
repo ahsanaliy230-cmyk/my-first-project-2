@@ -2,48 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduLearn - About</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-    <nav>
-        <div class="logo">EduLearn</div>
-        <ul class="nav-links">
-            <li><a href="index.html">کور</a></li>
-            <li><a href="about.html">موږ څوک یو</a></li>
-            <li><a href="courses.html">کورسونه</a></li>
-            <li><a href="blog.html">بلاګ</a></li>
-            <li><a href="faq.html">پوښتنې</a></li>
-            <li><a href="events.html">پیښې</a></li>
-            <li><a href="login.html">ننوتل</a></li>
-            <li><a href="dashboard.html">ډشبورډ</a></li>
-            <li><a href="contact.html">اړیکه</a></li>
-        </ul>
-        <div class="lang-switcher">			<!-- د ژبو بدلونکې تڼۍ به وروسته ورکړو -->
-            <button id="lang-en">EN</button>
-            <button id="lang-ps">پښتو</button>
-        </div>
-    </nav>
-</header>
-    <header>
+    <header> <!-- هماغه مینو لکه په index.html کې، خو د active ټولګی په about.html باندې کېږدئ -->
         <nav>
             <div class="logo">EduLearn</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="courses.html">Courses</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="lang-switcher">
+                <button id="lang-en" class="lang-btn active">EN</button>
+                <button id="lang-ps" class="lang-btn">پښتو</button>
+            </div>
         </nav>
     </header>
-
     <main>
         <section class="page-header">
             <h1>About EduLearn</h1>
         </section>
-
         <section class="about-content">
             <div class="about-text">
                 <h2>Our Mission</h2>
@@ -52,11 +38,9 @@
                 <p>Founded in 2020, EduLearn started as a small initiative to help students learn programming online. Today, we offer a wide range of courses in technology, business, arts, and more, with thousands of happy learners.</p>
             </div>
             <div class="about-image">
-                <img src="https://source.unsplash.com/featured/400x300?campus" alt="Our campus">
+                <img src="https://source.unsplash.com/featured/400x300?campus" alt="Campus">
             </div>
         </section>
-
-        <!-- Team Section (New) -->
         <section class="team">
             <h2>Meet Our Team</h2>
             <div class="team-cards">
@@ -73,9 +57,81 @@
             </div>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2025 EduLearn. All rights reserved.</p>
     </footer>
+    <!-- د چیټ او پاپ اپ او ژبو لپاره همدا کوډ ولګوئ (لکه مخکې) -->
+    <button id="chat-button" class="chat-button">💬</button>
+    <div id="chat-box" class="chat-box">...</div>
+    <div id="newsletter-popup" class="popup">...</div>
+    <script src="common.js"></script>
+    <script>
+    // د ژبو بدلونکی
+    (function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const elementsToTranslate = document.querySelectorAll('[data-en]');
+        if (langButtons.length === 0 || elementsToTranslate.length === 0) return;
+
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(el => {
+                const translation = el.getAttribute(`data-${lang}`);
+                if (translation) el.textContent = translation;
+            });
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.id === `lang-${lang}`);
+            });
+            document.documentElement.lang = lang;
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const lang = e.target.id.split('-')[1];
+                setLanguage(lang);
+            });
+        });
+
+        // ابتدائي ژبه (انګلیسي)
+        setLanguage('en');
+    })();
+
+    // د چیټ بکس فعالیت
+    (function() {
+        const chatButton = document.getElementById('chat-button');
+        const chatBox = document.getElementById('chat-box');
+        const closeChat = document.getElementById('close-chat');
+        if (chatButton && chatBox && closeChat) {
+            chatButton.addEventListener('click', () => {
+                chatBox.classList.toggle('active');
+            });
+            closeChat.addEventListener('click', () => {
+                chatBox.classList.remove('active');
+            });
+        }
+    })();
+
+    // د خبر پاڼې پاپ اپ
+    (function() {
+        const popup = document.getElementById('newsletter-popup');
+        if (popup) {
+            // د ۳ ثانیو وروسته ښکاره کړئ
+            setTimeout(() => {
+                popup.classList.add('active');
+            }, 3000);
+
+            const closePopup = document.getElementById('close-popup');
+            if (closePopup) {
+                closePopup.addEventListener('click', () => {
+                    popup.classList.remove('active');
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                }
+            });
+        }
+    })();
+</script>
 </body>
 </html>
