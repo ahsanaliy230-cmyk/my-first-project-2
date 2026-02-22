@@ -2,30 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduLearn - Blog</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">EduLearn</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <header> <!-- مینو --> </header>
     <main>
         <section class="page-header">
             <h1>Our Blog</h1>
             <p>Tips, news, and insights for lifelong learners</p>
         </section>
-
         <section class="blog-posts">
             <article class="blog-post">
                 <img src="https://source.unsplash.com/featured/800x400?online-learning" alt="Online Learning">
@@ -34,7 +20,6 @@
                 <p>Online learning requires discipline and the right strategies. Here are our top tips to help you stay motivated and make the most of your courses...</p>
                 <a href="#" class="read-more">Read More →</a>
             </article>
-
             <article class="blog-post">
                 <img src="https://source.unsplash.com/featured/800x400?coding" alt="Coding">
                 <h2><a href="#">Why Everyone Should Learn to Code</a></h2>
@@ -42,19 +27,78 @@
                 <p>Coding isn't just for developers. It teaches problem‑solving, logical thinking, and opens up new career opportunities. Find out how to get started...</p>
                 <a href="#" class="read-more">Read More →</a>
             </article>
-
-            <article class="blog-post">
-                <img src="https://source.unsplash.com/featured/800x400?career" alt="Career">
-                <h2><a href="#">How to Switch Careers with Online Courses</a></h2>
-                <p class="post-meta">Posted on February 20, 2025 by Admin</p>
-                <p>Thinking of a career change? Online education can help you gain new skills without quitting your job. Learn the steps to make a successful transition...</p>
-                <a href="#" class="read-more">Read More →</a>
-            </article>
         </section>
     </main>
+    <footer>...</footer>
+    <!-- چیټ، پاپ اپ، ژبو -->
+    <script src="common.js"></script>
+    <script>
+    // د ژبو بدلونکی
+    (function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const elementsToTranslate = document.querySelectorAll('[data-en]');
+        if (langButtons.length === 0 || elementsToTranslate.length === 0) return;
 
-    <footer>
-        <p>&copy; 2025 EduLearn. All rights reserved.</p>
-    </footer>
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(el => {
+                const translation = el.getAttribute(`data-${lang}`);
+                if (translation) el.textContent = translation;
+            });
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.id === `lang-${lang}`);
+            });
+            document.documentElement.lang = lang;
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const lang = e.target.id.split('-')[1];
+                setLanguage(lang);
+            });
+        });
+
+        // ابتدائي ژبه (انګلیسي)
+        setLanguage('en');
+    })();
+
+    // د چیټ بکس فعالیت
+    (function() {
+        const chatButton = document.getElementById('chat-button');
+        const chatBox = document.getElementById('chat-box');
+        const closeChat = document.getElementById('close-chat');
+        if (chatButton && chatBox && closeChat) {
+            chatButton.addEventListener('click', () => {
+                chatBox.classList.toggle('active');
+            });
+            closeChat.addEventListener('click', () => {
+                chatBox.classList.remove('active');
+            });
+        }
+    })();
+
+    // د خبر پاڼې پاپ اپ
+    (function() {
+        const popup = document.getElementById('newsletter-popup');
+        if (popup) {
+            // د ۳ ثانیو وروسته ښکاره کړئ
+            setTimeout(() => {
+                popup.classList.add('active');
+            }, 3000);
+
+            const closePopup = document.getElementById('close-popup');
+            if (closePopup) {
+                closePopup.addEventListener('click', () => {
+                    popup.classList.remove('active');
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                }
+            });
+        }
+    })();
+</script>
 </body>
 </html>
