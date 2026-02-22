@@ -9,66 +9,173 @@
 <body>
     <header>
         <nav>
-            <div class="logo">EduLearn</div>
+            <div class="logo" data-en="EduLearn" data-ps="EduLearn">EduLearn</div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html" class="active" data-en="Home" data-ps="کور">کور</a></li>
+                <li><a href="about.html" data-en="About" data-ps="موږ څوک یو">موږ څوک یو</a></li>
+                <li><a href="courses.html" data-en="Courses" data-ps="کورسونه">کورسونه</a></li>
+                <li><a href="blog.html" data-en="Blog" data-ps="بلاګ">بلاګ</a></li>
+                <li><a href="faq.html" data-en="FAQ" data-ps="پوښتنې">پوښتنې</a></li>
+                <li><a href="events.html" data-en="Events" data-ps="پیښې">پیښې</a></li>
+                <li><a href="login.html" data-en="Login" data-ps="ننوتل">ننوتل</a></li>
+                <li><a href="dashboard.html" data-en="Dashboard" data-ps="ډشبورډ">ډشبورډ</a></li>
+                <li><a href="contact.html" data-en="Contact" data-ps="اړیکه">اړیکه</a></li>
             </ul>
+            <div class="lang-switcher">
+                <button id="lang-en" class="lang-btn active">EN</button>
+                <button id="lang-ps" class="lang-btn">پښتو</button>
+            </div>
         </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Welcome to EduLearn</h1>
-            <p>Empowering minds through quality education</p>
-            <a href="courses.html" class="btn">Explore Courses</a>
+            <h1 data-en="Welcome to EduLearn" data-ps="EduLearn ته ښه راغلاست">EduLearn ته ښه راغلاست</h1>
+            <p data-en="Empowering minds through quality education" data-ps="د کیفیت لرونکې زده کړې له لارې ذهنونه پیاوړي کوو">د کیفیت لرونکې زده کړې له لارې ذهنونه پیاوړي کوو</p>
+            <a href="courses.html" class="btn" data-en="Explore Courses" data-ps="کورسونه وګورئ">کورسونه وګورئ</a>
         </section>
 
         <!-- Features Section -->
         <section class="features">
-            <h2>Why Choose Us?</h2>
+            <h2 data-en="Why Choose Us?" data-ps="ولې موږ غوره کوئ؟">ولې موږ غوره کوئ؟</h2>
             <div class="feature-cards">
                 <div class="card">
-                    <img src="https://source.unsplash.com/featured/100x100?teacher" alt="Expert Instructors" style="border-radius: 50%; margin-bottom: 15px;">
-                    <h3>Expert Instructors</h3>
-                    <p>Learn from industry professionals with years of experience.</p>
+                    <img src="https://source.unsplash.com/featured/100x100?teacher" alt="Expert Instructors">
+                    <h3 data-en="Expert Instructors" data-ps="تجربه لرونکي ښوونکي">تجربه لرونکي ښوونکي</h3>
+                    <p data-en="Learn from industry professionals with years of experience." data-ps="د کلونو تجربې لرونکو مسلکي کسانو څخه زده کړه وکړئ.">د کلونو تجربې لرونکو مسلکي کسانو څخه زده کړه وکړئ.</p>
                 </div>
                 <div class="card">
-                    <img src="https://source.unsplash.com/featured/100x100?online-learning" alt="Flexible Learning" style="border-radius: 50%; margin-bottom: 15px;">
-                    <h3>Flexible Learning</h3>
-                    <p>Study at your own pace, anytime, anywhere.</p>
+                    <img src="https://source.unsplash.com/featured/100x100?online-learning" alt="Flexible Learning">
+                    <h3 data-en="Flexible Learning" data-ps="انعطاف منونکې زده کړه">انعطاف منونکې زده کړه</h3>
+                    <p data-en="Study at your own pace, anytime, anywhere." data-ps="د خپل سرعت سره سم، هر وخت، هر ځای زده کړه وکړئ.">د خپل سرعت سره سم، هر وخت، هر ځای زده کړه وکړئ.</p>
                 </div>
                 <div class="card">
-                    <img src="https://source.unsplash.com/featured/100x100?scholarship" alt="Affordable Courses" style="border-radius: 50%; margin-bottom: 15px;">
-                    <h3>Affordable Courses</h3>
-                    <p>Quality education at prices that won't break the bank.</p>
+                    <img src="https://source.unsplash.com/featured/100x100?scholarship" alt="Affordable Courses">
+                    <h3 data-en="Affordable Courses" data-ps="ارزانه کورسونه">ارزانه کورسونه</h3>
+                    <p data-en="Quality education at prices that won't break the bank." data-ps="داسې بیو کې کیفیت لرونکې زده کړه چې ستاسو بودیجه له خطر سره نه مخ کوي.">داسې بیو کې کیفیت لرونکې زده کړه چې ستاسو بودیجه له خطر سره نه مخ کوي.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section (New) -->
+        <!-- Testimonials Section -->
         <section class="testimonials">
-            <h2>What Our Students Say</h2>
+            <h2 data-en="What Our Students Say" data-ps="زموږ زده کوونکي څه وايي">زموږ زده کوونکي څه وايي</h2>
             <div class="testimonial-cards">
                 <div class="testimonial">
                     <img src="https://source.unsplash.com/featured/80x80?student-face" alt="Student">
-                    <p>"EduLearn transformed my career! The courses are practical and the instructors are amazing."</p>
-                    <h4>— Aisha Khan</h4>
+                    <p data-en='"EduLearn transformed my career! The courses are practical and the instructors are amazing."' data-ps='"EduLearn زما مسلک بدل کړ! کورسونه عملي دي او ښوونکي بې‌ساري دي."'>"EduLearn زما مسلک بدل کړ! کورسونه عملي دي او ښوونکي بې‌ساري دي."</p>
+                    <h4 data-en="— Aisha Khan" data-ps="— عایشه خان">— عایشه خان</h4>
                 </div>
                 <div class="testimonial">
                     <img src="https://source.unsplash.com/featured/80x80?student" alt="Student">
-                    <p>"I love the flexibility. I could learn while working full‑time. Highly recommended!"</p>
-                    <h4>— Rahim Karimi</h4>
+                    <p data-en='"I love the flexibility. I could learn while working full‑time. Highly recommended!"' data-ps='"انعطاف مې ډېر خوښ شو. د بشپړ وخت دندې سره سره مې زده کړه وکړه. په کلکه یې سپارښتنه کوم!"'>"انعطاف مې ډېر خوښ شو. د بشپړ وخت دندې سره سره مې زده کړه وکړه. په کلکه یې سپارښتنه کوم!"</p>
+                    <h4 data-en="— Rahim Karimi" data-ps="— رحیم کریمي">— رحیم کریمي</h4>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 EduLearn. All rights reserved.</p>
+        <p data-en="&copy; 2025 EduLearn. All rights reserved." data-ps="© ۲۰۲۵ EduLearn. ټول حقونه خوندي دي.">© ۲۰۲۵ EduLearn. ټول حقونه خوندي دي.</p>
     </footer>
+
+    <!-- Chat Button -->
+    <button id="chat-button" class="chat-button">💬</button>
+    <div id="chat-box" class="chat-box">
+        <div class="chat-header">
+            <span data-en="Help" data-ps="مرسته">مرسته</span>
+            <span id="close-chat">✖</span>
+        </div>
+        <div class="chat-messages">
+            <p><strong data-en="Assistant:" data-ps="مرستندوی:">مرستندوی:</strong> <span data-en="Welcome! How can I help you?" data-ps="ښه راغلاست! څنګه درسره مرسته وکړو؟">ښه راغلاست! څنګه درسره مرسته وکړو؟</span></p>
+        </div>
+        <input type="text" id="chat-input" placeholder="خپل پیغام ولیکئ ...">
+    </div>
+
+    <!-- Newsletter Popup -->
+    <div id="newsletter-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-popup" class="close">&times;</span>
+            <h2 data-en="Subscribe to our Newsletter" data-ps="زموږ خبر پاڼه کې ګډون وکړئ">زموږ خبر پاڼه کې ګډون وکړئ</h2>
+            <p data-en="Be the first to know about new courses and discounts." data-ps="د نویو کورسونو او تخفیفاتو په اړه لومړی خبر شئ.">د نویو کورسونو او تخفیفاتو په اړه لومړی خبر شئ.</p>
+            <form action="#" method="post">
+                <input type="email" placeholder="برېښنالیک آدرس" required>
+                <button type="submit" class="btn" data-en="Subscribe" data-ps="ګډون">ګډون</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="common.js"></script> <!-- که جلا فایل جوړوئ -->
+    <!-- یا دلته همغه JS کوډ پیسټ کړئ -->
+    <script>
+    // د ژبو بدلونکی
+    (function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const elementsToTranslate = document.querySelectorAll('[data-en]');
+        if (langButtons.length === 0 || elementsToTranslate.length === 0) return;
+
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(el => {
+                const translation = el.getAttribute(`data-${lang}`);
+                if (translation) el.textContent = translation;
+            });
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.id === `lang-${lang}`);
+            });
+            document.documentElement.lang = lang;
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const lang = e.target.id.split('-')[1];
+                setLanguage(lang);
+            });
+        });
+
+        // ابتدائي ژبه (انګلیسي)
+        setLanguage('en');
+    })();
+
+    // د چیټ بکس فعالیت
+    (function() {
+        const chatButton = document.getElementById('chat-button');
+        const chatBox = document.getElementById('chat-box');
+        const closeChat = document.getElementById('close-chat');
+        if (chatButton && chatBox && closeChat) {
+            chatButton.addEventListener('click', () => {
+                chatBox.classList.toggle('active');
+            });
+            closeChat.addEventListener('click', () => {
+                chatBox.classList.remove('active');
+            });
+        }
+    })();
+
+    // د خبر پاڼې پاپ اپ
+    (function() {
+        const popup = document.getElementById('newsletter-popup');
+        if (popup) {
+            // د ۳ ثانیو وروسته ښکاره کړئ
+            setTimeout(() => {
+                popup.classList.add('active');
+            }, 3000);
+
+            const closePopup = document.getElementById('close-popup');
+            if (closePopup) {
+                closePopup.addEventListener('click', () => {
+                    popup.classList.remove('active');
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                }
+            });
+        }
+    })();
+</script>
 </body>
 </html>
