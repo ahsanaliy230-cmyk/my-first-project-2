@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduLearn - Events</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header> <!-- مینو --> </header>
+    <main>
+        <section class="page-header">
+            <h1>Upcoming Events</h1>
+            <p>Join our webinars and workshops</p>
+        </section>
+        <section class="event-list">
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">15</span>
+                    <span class="month">April</span>
+                </div>
+                <div class="event-details">
+                    <h3>Webinar: Future of Web Development</h3>
+                    <p>April 15, 2025 at 4:00 PM. Industry experts share insights.</p>
+                    <a href="#" class="btn-small">Register</a>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">22</span>
+                    <span class="month">April</span>
+                </div>
+                <div class="event-details">
+                    <h3>Workshop: Data Science for Beginners</h3>
+                    <p>Hands-on session with Python and statistics.</p>
+                    <a href="#" class="btn-small">Register</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>...</footer>
+    <script src="common.js"></script>
+  <script>
+    // د ژبو بدلونکی
+    (function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const elementsToTranslate = document.querySelectorAll('[data-en]');
+        if (langButtons.length === 0 || elementsToTranslate.length === 0) return;
+
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(el => {
+                const translation = el.getAttribute(`data-${lang}`);
+                if (translation) el.textContent = translation;
+            });
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.id === `lang-${lang}`);
+            });
+            document.documentElement.lang = lang;
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const lang = e.target.id.split('-')[1];
+                setLanguage(lang);
+            });
+        });
+
+        // ابتدائي ژبه (انګلیسي)
+        setLanguage('en');
+    })();
+
+    // د چیټ بکس فعالیت
+    (function() {
+        const chatButton = document.getElementById('chat-button');
+        const chatBox = document.getElementById('chat-box');
+        const closeChat = document.getElementById('close-chat');
+        if (chatButton && chatBox && closeChat) {
+            chatButton.addEventListener('click', () => {
+                chatBox.classList.toggle('active');
+            });
+            closeChat.addEventListener('click', () => {
+                chatBox.classList.remove('active');
+            });
+        }
+    })();
+
+    // د خبر پاڼې پاپ اپ
+    (function() {
+        const popup = document.getElementById('newsletter-popup');
+        if (popup) {
+            // د ۳ ثانیو وروسته ښکاره کړئ
+            setTimeout(() => {
+                popup.classList.add('active');
+            }, 3000);
+
+            const closePopup = document.getElementById('close-popup');
+            if (closePopup) {
+                closePopup.addEventListener('click', () => {
+                    popup.classList.remove('active');
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                }
+            });
+        }
+    })();
+</script>
+</body>
+</html>
