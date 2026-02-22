@@ -2,27 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduLearn - Courses</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">EduLearn</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html" class="active">Courses</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <header> <!-- مینو --> </header>
     <main>
         <section class="page-header">
             <h1>Our Courses</h1>
             <p>Choose from a variety of courses designed to boost your skills</p>
+        </section>
+
+        <!-- د لټون بکس -->
+        <section class="search-bar">
+            <input type="text" id="search-input" placeholder="Search courses...">
         </section>
 
         <section class="course-list">
@@ -50,20 +43,92 @@
                 <span class="price">$149</span>
                 <a href="#" class="btn-small">Enroll Now</a>
             </div>
-            <!-- Additional Course -->
-            <div class="course-card">
-                <img src="https://source.unsplash.com/featured/300x200?graphic-design" alt="Graphic Design">
-                <h3>Graphic Design Essentials</h3>
-                <p>Photoshop, Illustrator, typography. Create stunning visuals.</p>
-                <span class="duration">8 weeks</span>
-                <span class="price">$179</span>
-                <a href="#" class="btn-small">Enroll Now</a>
-            </div>
         </section>
     </main>
+    <footer>...</footer>
+    <!-- چیټ، پاپ اپ، ژبو او د لټون لپاره JS -->
+    <script>
+        // د لټون فعالیت
+        const searchInput = document.getElementById('search-input');
+        const courseCards = document.querySelectorAll('.course-card');
+        if (searchInput) {
+            searchInput.addEventListener('keyup', () => {
+                const term = searchInput.value.toLowerCase();
+                courseCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    card.style.display = title.includes(term) ? 'block' : 'none';
+                });
+            });
+        }
+    </script>
+    <script src="common.js"></script>
+    <script>
+    // د ژبو بدلونکی
+    (function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const elementsToTranslate = document.querySelectorAll('[data-en]');
+        if (langButtons.length === 0 || elementsToTranslate.length === 0) return;
 
-    <footer>
-        <p>&copy; 2025 EduLearn. All rights reserved.</p>
-    </footer>
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(el => {
+                const translation = el.getAttribute(`data-${lang}`);
+                if (translation) el.textContent = translation;
+            });
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.id === `lang-${lang}`);
+            });
+            document.documentElement.lang = lang;
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const lang = e.target.id.split('-')[1];
+                setLanguage(lang);
+            });
+        });
+
+        // ابتدائي ژبه (انګلیسي)
+        setLanguage('en');
+    })();
+
+    // د چیټ بکس فعالیت
+    (function() {
+        const chatButton = document.getElementById('chat-button');
+        const chatBox = document.getElementById('chat-box');
+        const closeChat = document.getElementById('close-chat');
+        if (chatButton && chatBox && closeChat) {
+            chatButton.addEventListener('click', () => {
+                chatBox.classList.toggle('active');
+            });
+            closeChat.addEventListener('click', () => {
+                chatBox.classList.remove('active');
+            });
+        }
+    })();
+
+    // د خبر پاڼې پاپ اپ
+    (function() {
+        const popup = document.getElementById('newsletter-popup');
+        if (popup) {
+            // د ۳ ثانیو وروسته ښکاره کړئ
+            setTimeout(() => {
+                popup.classList.add('active');
+            }, 3000);
+
+            const closePopup = document.getElementById('close-popup');
+            if (closePopup) {
+                closePopup.addEventListener('click', () => {
+                    popup.classList.remove('active');
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                }
+            });
+        }
+    })();
+</script>
 </body>
 </html>
