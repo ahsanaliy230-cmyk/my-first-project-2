@@ -2,72 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduLearn - FAQ</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Accordion styles (add to style.css later) */
-        .faq-section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .faq-item {
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .faq-question {
-            background: #f4f4f4;
-            padding: 15px;
-            cursor: pointer;
-            font-weight: bold;
-            position: relative;
-        }
-        .faq-question::after {
-            content: '+';
-            position: absolute;
-            right: 15px;
-            font-size: 1.2rem;
-        }
-        .faq-item.active .faq-question::after {
-            content: '-';
-        }
-        .faq-answer {
-            padding: 0 15px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: #fff;
-        }
-        .faq-item.active .faq-answer {
-            padding: 15px;
-            max-height: 200px; /* adjust as needed */
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">EduLearn</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faq.html" class="active">FAQ</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <header> <!-- مینو --> </header>
     <main>
         <section class="page-header">
             <h1>Frequently Asked Questions</h1>
-            <p>Find answers to common queries about our courses and platform.</p>
         </section>
-
         <section class="faq-section">
             <div class="faq-item">
                 <div class="faq-question">How do I enroll in a course?</div>
@@ -81,26 +24,85 @@
                 <div class="faq-question">Do I get a certificate after completion?</div>
                 <div class="faq-answer">Absolutely. Upon finishing a course, you'll receive a certificate of completion that you can share on LinkedIn or your resume.</div>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">What payment methods do you accept?</div>
-                <div class="faq-answer">We accept all major credit cards, PayPal, and bank transfers in some regions.</div>
-            </div>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2025 EduLearn. All rights reserved.</p>
-    </footer>
-
+    <footer>...</footer>
     <script>
-        // Simple accordion script
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
+        // Accordion script
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
                 item.classList.toggle('active');
             });
         });
     </script>
+    <script src="common.js"></script>
+    <script>
+    // د ژبو بدلونکی
+    (function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const elementsToTranslate = document.querySelectorAll('[data-en]');
+        if (langButtons.length === 0 || elementsToTranslate.length === 0) return;
+
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(el => {
+                const translation = el.getAttribute(`data-${lang}`);
+                if (translation) el.textContent = translation;
+            });
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.id === `lang-${lang}`);
+            });
+            document.documentElement.lang = lang;
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const lang = e.target.id.split('-')[1];
+                setLanguage(lang);
+            });
+        });
+
+        // ابتدائي ژبه (انګلیسي)
+        setLanguage('en');
+    })();
+
+    // د چیټ بکس فعالیت
+    (function() {
+        const chatButton = document.getElementById('chat-button');
+        const chatBox = document.getElementById('chat-box');
+        const closeChat = document.getElementById('close-chat');
+        if (chatButton && chatBox && closeChat) {
+            chatButton.addEventListener('click', () => {
+                chatBox.classList.toggle('active');
+            });
+            closeChat.addEventListener('click', () => {
+                chatBox.classList.remove('active');
+            });
+        }
+    })();
+
+    // د خبر پاڼې پاپ اپ
+    (function() {
+        const popup = document.getElementById('newsletter-popup');
+        if (popup) {
+            // د ۳ ثانیو وروسته ښکاره کړئ
+            setTimeout(() => {
+                popup.classList.add('active');
+            }, 3000);
+
+            const closePopup = document.getElementById('close-popup');
+            if (closePopup) {
+                closePopup.addEventListener('click', () => {
+                    popup.classList.remove('active');
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                }
+            });
+        }
+    })();
+</script>
 </body>
 </html>
